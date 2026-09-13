@@ -1,0 +1,238 @@
+/* ---------- Custom properties ---------- */
+:root {
+  --color-text-dark: hsl(217, 19%, 35%);
+  --color-text-body: hsl(214, 17%, 51%);
+  --color-icon-inactive: hsl(212, 23%, 69%);
+  --color-bg: hsl(210, 46%, 95%);
+  --color-white: hsl(0, 0%, 100%);
+
+  --font-family: "Manrope", sans-serif;
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ---------- Base ---------- */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background-color: var(--color-bg);
+  font-family: var(--font-family);
+  font-size: 0.8125rem;
+  color: var(--color-text-body);
+  padding: 1.5rem;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* ---------- Article preview ---------- */
+.article-preview {
+  --radius: 0.625rem;
+
+  width: 100%;
+  max-width: 23.4375rem;
+  background-color: var(--color-white);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 1.25rem 2.5rem -0.625rem rgba(122, 146, 173, 0.5);
+}
+
+.article-preview__image {
+  width: 100%;
+  height: 12.5rem;
+  object-fit: cover;
+}
+
+.article-preview__body {
+  padding: 2rem 1.5rem 1.5rem;
+}
+
+.article-preview__title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--color-text-dark);
+}
+
+.article-preview__text {
+  margin-top: 0.75rem;
+  line-height: 1.6;
+}
+
+.article-preview__footer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.article-preview__author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.article-preview__avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+}
+
+.article-preview__author-name {
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.article-preview__date {
+  color: var(--color-icon-inactive);
+}
+
+/* ---------- Share control ---------- */
+.share-toggle {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background-color: var(--color-bg);
+  transition: background-color 0.2s ease;
+}
+
+.share-toggle img {
+  width: 0.9375rem;
+  height: 0.8125rem;
+}
+
+.share-toggle[aria-expanded="true"] {
+  background-color: var(--color-text-dark);
+}
+
+.share-toggle[aria-expanded="true"] img {
+  filter: brightness(0) invert(1);
+}
+
+.share-popover {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: -1.5rem;
+  right: -1.5rem;
+  bottom: -1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 4.5rem 0 1.5rem;
+  background-color: var(--color-text-dark);
+}
+
+.share-popover[hidden] {
+  display: none;
+}
+
+.share-popover__label {
+  letter-spacing: 0.3125rem;
+  text-transform: uppercase;
+  color: var(--color-icon-inactive);
+}
+
+.share-popover__list {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* ---------- Desktop layout ---------- */
+@media (min-width: 47.5rem) {
+  body {
+    font-size: 0.8125rem;
+  }
+
+  .article-preview {
+    max-width: 45.625rem;
+    display: grid;
+    grid-template-columns: 17.5rem 1fr;
+  }
+
+  .article-preview__image {
+    height: 100%;
+  }
+
+  .article-preview__body {
+    padding: 2.5rem;
+  }
+
+  .article-preview__title {
+    font-size: 1.25rem;
+  }
+
+  .share-popover {
+    top: auto;
+    bottom: calc(100% + 1rem);
+    left: auto;
+    right: -1rem;
+    width: 13.5rem;
+    justify-content: center;
+    padding: 0.9rem 1.5rem;
+    border-radius: 0.625rem;
+    box-shadow: 0 0.9375rem 1.875rem -0.3125rem rgba(72, 89, 105, 0.5);
+  }
+
+  .share-popover::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 1.6875rem;
+    border: 0.5625rem solid transparent;
+    border-top-color: var(--color-text-dark);
+  }
+}
+
+/* ---------- Attribution ---------- */
+.attribution {
+  font-size: 0.6875rem;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
