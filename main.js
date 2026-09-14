@@ -14,3 +14,14 @@ button.addEventListener("keydown", function (e) {
     button.setAttribute("aria-expanded", false);
   }
 });
+
+// close when click outside
+const shareIcon = document.querySelector(".article-preview__share");
+document.addEventListener("click", function (e) {
+  const isExpanded = button.getAttribute("aria-expanded") === "true";
+  const clickOutside = !shareIcon.contains(e.target);
+  if (isExpanded && clickOutside) {
+    popover.hidden = true;
+    button.setAttribute("aria-expanded", !isExpanded);
+  }
+});
