@@ -27,8 +27,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [repo](https://github.com/mnav08/article-component.git)
-- Live Site URL: [Live Demo](https://your-live-site-url.com)
+- Solution URL: [Repo](https://github.com/mnav08/article-component.git)
+- Live Site URL: [Live Demo](https://mnav08.github.io/article-component/)
 
 ## My process
 
